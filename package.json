@@ -1,6 +1,6 @@
 {
   "name": "chalk-logging",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "index.js",
   "types": "module",
   "repository": "https://github.com/KentLeong/chalk-logging.git",
