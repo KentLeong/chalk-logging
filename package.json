@@ -1,14 +1,14 @@
 {
   "name": "chalk-logging",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "main": "index.js",
   "type": "module",
   "repository": "https://github.com/KentLeong/chalk-logging.git",
   "author": "Eric Chu <leongzeno@gmail.com>",
   "license": "MIT",
   "exports": {
-    "./": "./index.js",
-    "./es5": "./es5.js"
+    "./": "index.js",
+    "./es5": "es5.js"
   },
   "scripts": {
     "start": "node index"
