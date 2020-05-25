@@ -3,10 +3,6 @@
   "version": "1.0.4",
   "main": "index.js",
   "types": "module",
-  "exports": {
-    "./": "index.js",
-    "./es5": "es5.cjs"
-  },
   "repository": "https://github.com/KentLeong/chalk-logging.git",
   "author": "Eric Chu <leongzeno@gmail.com>",
   "license": "MIT",
