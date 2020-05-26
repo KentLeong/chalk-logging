@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+import chalk from "chalk";
 
 var log = {
   success(message) {
@@ -28,4 +28,4 @@ var log = {
   }
 }
 
-export { log }
+export default log;
