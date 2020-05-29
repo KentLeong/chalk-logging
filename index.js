@@ -1,30 +1,87 @@
+import dotenv from "dotenv";
+dotenv.config();
 import chalk from "chalk";
 
 var log = {
+  title(message) {
+    if (process.env.CHALK_LOGGING == "false") return;
+    console.log(chalk.bold(message))
+  },
   success(message) {
-    var status = chalk.green.underline("[ SUCCESS ]");
-    var message = chalk.green(message);
-    console.log(status+" "+message);
+    if (process.env.CHALK_LOGGING == "false") return;
+    if (typeof message == "object") {
+      var msg = message.statusText.split(" : ");
+      var status = chalk.green("success "+msg[0]);
+      console.log(status+" "+msg[1]);
+    } else {
+      var status = chalk.green("success ");
+      console.log(status+message);
+    }
   },
   warning(message) {
-    var status = chalk.yellow.underline("[ WARNING ]");
-    var message = chalk.yellow(message);
-    console.log(status+" "+message);
+    if (process.env.CHALK_LOGGING == "false") return;
+    if (typeof message == "object") {
+      var msg = message.statusText.split(" : ");
+      var status = chalk.yellow("warning "+msg[0]);
+      console.log(status+" "+msg[1]);
+    } else {
+      var status = chalk.yellow("warning ");
+      console.log(status+message);
+    }
   },
   info(message) {
-    var status = chalk.blue.underline("[ INFO    ]");
-    var message = chalk.blue(message);
-    console.log(status+" "+message);
+    if (process.env.CHALK_LOGGING == "false") return;
+    if (typeof message == "object") {
+      var msg = message.statusText.split(" : ");
+      var status = chalk.blue("info "+msg[0]);
+      console.log(status+" "+msg[1]);
+    } else {
+      var status = chalk.blue("info ");
+      console.log(status+message);
+    }
   },
   error(message) {
-    var status = chalk.red.underline("[ ERROR   ]");
-    var message = chalk.red(message);
-    console.log(status+" "+message);
+    if (process.env.CHALK_LOGGING == "false") return;
+    if (typeof message == "object") {
+      var msg = message.statusText.split(" : ");
+      var status = chalk.red("error "+msg[0]);
+      console.log(status+" "+msg[1]);
+    } else {
+      var status = chalk.red("error ");
+      console.log(status+message);
+    }
   },
   complete(message) {
-    var status = chalk.magenta.underline("[ COMPLETE ]");
-    var message = chalk.magenta(message);
-    console.log(status+" "+message);
+    if (process.env.CHALK_LOGGING == "false") return;
+    if (typeof message == "object") {
+      var msg = message.statusText.split(" : ");
+      var status = chalk.magenta("complete "+msg[0]);
+      console.log(status+" "+msg[1]);
+    } else {
+      var status = chalk.magenta("complete ");
+      console.log(status+message);
+    }
+  },
+  group(messages) {
+    if (process.env.CHALK_LOGGING == "false") return;
+    var branch = "├─"
+    var end = "└─"
+    for (let i = 0; i < messages.length; i++) {
+      if (i+1 === messages.length) return console.log(end + " " + messages[i]);
+      console.log(branch + " " + messages[i]);
+    }
+  },
+  branch(message) {
+    if (process.env.CHALK_LOGGING == "false") return;
+    console.log("├─ "+message);
+  },
+  openBranch(message) {
+    if (process.env.CHALK_LOGGING == "false") return;
+    console.log("├  "+message);
+  },
+  endBranch(message) {
+    if (process.env.CHALK_LOGGING == "false") return;
+    console.log("└─ "+message);
   }
 }
 
