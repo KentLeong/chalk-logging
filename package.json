@@ -1,6 +1,6 @@
 {
   "name": "chalk-logging",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "main": "index.js",
   "type": "module",
   "repository": "https://github.com/KentLeong/chalk-logging.git",
@@ -10,6 +10,7 @@
     "start": "node index"
   },
   "dependencies": {
-    "chalk": "^4.0.0"
+    "chalk": "^4.0.0",
+    "dotenv": "^8.2.0"
   }
 }
