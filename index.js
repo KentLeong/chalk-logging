@@ -4,11 +4,11 @@ import chalk from "chalk";
 
 var log = {
   title(message) {
-    if (process.env.CHALK_LOGGING == "false") return;
+    if (process.env.DEV == "false") return;
     console.log(chalk.bold(message))
   },
   success(message) {
-    if (process.env.CHALK_LOGGING == "false") return;
+    if (process.env.DEV == "false") return;
     if (typeof message == "object") {
       var msg = message.statusText.split(" : ");
       var status = chalk.green("success "+msg[0]);
@@ -19,7 +19,7 @@ var log = {
     }
   },
   warning(message) {
-    if (process.env.CHALK_LOGGING == "false") return;
+    if (process.env.DEV == "false") return;
     if (typeof message == "object") {
       var msg = message.statusText.split(" : ");
       var status = chalk.yellow("warning "+msg[0]);
@@ -30,7 +30,7 @@ var log = {
     }
   },
   info(message) {
-    if (process.env.CHALK_LOGGING == "false") return;
+    if (process.env.DEV == "false") return;
     if (typeof message == "object") {
       var msg = message.statusText.split(" : ");
       var status = chalk.blue("info "+msg[0]);
@@ -41,7 +41,7 @@ var log = {
     }
   },
   error(message) {
-    if (process.env.CHALK_LOGGING == "false") return;
+    if (process.env.DEV == "false") return;
     if (typeof message == "object") {
       var msg = message.statusText.split(" : ");
       var status = chalk.red("error "+msg[0]);
@@ -52,7 +52,7 @@ var log = {
     }
   },
   complete(message) {
-    if (process.env.CHALK_LOGGING == "false") return;
+    if (process.env.DEV == "false") return;
     if (typeof message == "object") {
       var msg = message.statusText.split(" : ");
       var status = chalk.magenta("complete "+msg[0]);
@@ -63,7 +63,7 @@ var log = {
     }
   },
   group(messages) {
-    if (process.env.CHALK_LOGGING == "false") return;
+    if (process.env.DEV == "false") return;
     var branch = "├─"
     var end = "└─"
     for (let i = 0; i < messages.length; i++) {
@@ -72,15 +72,15 @@ var log = {
     }
   },
   branch(message) {
-    if (process.env.CHALK_LOGGING == "false") return;
+    if (process.env.DEV == "false") return;
     console.log("├─ "+message);
   },
   openBranch(message) {
-    if (process.env.CHALK_LOGGING == "false") return;
+    if (process.env.DEV == "false") return;
     console.log("├  "+message);
   },
   endBranch(message) {
-    if (process.env.CHALK_LOGGING == "false") return;
+    if (process.env.DEV == "false") return;
     console.log("└─ "+message);
   }
 }
