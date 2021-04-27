@@ -1,6 +1,6 @@
 {
   "name": "chalk-logging",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "main": "dist/index",
   "repository": "https://github.com/KentLeong/chalk-logging.git",
   "author": "Eric Chu <leongzeno@gmail.com>",
