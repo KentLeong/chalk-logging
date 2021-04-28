@@ -2,15 +2,15 @@ import dotenv from "dotenv";
 dotenv.config();
 import chalk from "chalk";
 
-var log = {
-  title(message) {
+export default {
+  title(message: object) {
     if (process.env.DEV == "false") return;
     console.log(chalk.bold(message))
   },
-  success(message) {
+  success(message: any) {
     if (process.env.DEV == "false") return;
-    if (typeof message == "object") {
-      var msg = message.statusText.split(" : ");
+    if (typeof message == "object" && message.statusText) {
+      var msg = message.statusText?.split(" : ");
       var status = chalk.green("success "+msg[0]);
       console.log(status+" "+msg[1]);
     } else {
@@ -18,10 +18,10 @@ var log = {
       console.log(status+message);
     }
   },
-  warning(message) {
+  warning(message: any) {
     if (process.env.DEV == "false") return;
-    if (typeof message == "object") {
-      var msg = message.statusText.split(" : ");
+    if (typeof message == "object" && message.statusText) {
+      var msg = message.statusText?.split(" : ");
       var status = chalk.yellow("warning "+msg[0]);
       console.log(status+" "+msg[1]);
     } else {
@@ -29,10 +29,10 @@ var log = {
       console.log(status+message);
     }
   },
-  info(message) {
+  info(message: any) {
     if (process.env.DEV == "false") return;
-    if (typeof message == "object") {
-      var msg = message.statusText.split(" : ");
+    if (typeof message == "object" && message.statusText) {
+      var msg = message.statusText?.split(" : ");
       var status = chalk.blue("info "+msg[0]);
       console.log(status+" "+msg[1]);
     } else {
@@ -40,10 +40,10 @@ var log = {
       console.log(status+message);
     }
   },
-  error(message) {
+  error(message: any) {
     if (process.env.DEV == "false") return;
-    if (typeof message == "object") {
-      var msg = message.statusText.split(" : ");
+    if (typeof message == "object" && message.statusText) {
+      var msg = message.statusText?.split(" : ");
       var status = chalk.red("error "+msg[0]);
       console.log(status+" "+msg[1]);
     } else {
@@ -51,10 +51,10 @@ var log = {
       console.log(status+message);
     }
   },
-  complete(message) {
+  complete(message: any) {
     if (process.env.DEV == "false") return;
-    if (typeof message == "object") {
-      var msg = message.statusText.split(" : ");
+    if (typeof message == "object" && message.statusText) {
+      var msg = message.statusText?.split(" : ");
       var status = chalk.magenta("complete "+msg[0]);
       console.log(status+" "+msg[1]);
     } else {
@@ -62,7 +62,7 @@ var log = {
       console.log(status+message);
     }
   },
-  group(messages) {
+  group(messages: any) {
     if (process.env.DEV == "false") return;
     var branch = "├─"
     var end = "└─"
@@ -71,18 +71,16 @@ var log = {
       console.log(branch + " " + messages[i]);
     }
   },
-  branch(message) {
+  branch(message: any) {
     if (process.env.DEV == "false") return;
     console.log("├─ "+message);
   },
-  openBranch(message) {
+  openBranch(message: any) {
     if (process.env.DEV == "false") return;
     console.log("├  "+message);
   },
-  endBranch(message) {
+  endBranch(message: any) {
     if (process.env.DEV == "false") return;
     console.log("└─ "+message);
   }
 }
-
-export default log;
